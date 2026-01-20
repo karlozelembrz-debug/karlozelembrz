@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projekt Multimedijski Sustavi</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background-color: #2e2e2e;
+      color: #222;
+      display: flex;
+      min-height: 100vh;
+    }
+
+    nav {
+      width: 240px;
+      background-color: #222;
+      min-height: 100vh;
+      position: fixed;
+      top: 0;
+      left: 0;
+      display: flex;
+      flex-direction: column;
+    }
+
+    nav ul {
+      list-style: none;
+      flex-grow: 1;
+    }
+
+    nav ul li a {
+      display: block;
+      padding: 17px 22px;
+      color: #fff;
+      text-decoration: none;
+      border-bottom: 1px solid #333;
+      font-size: 1.05rem;
+    }
+
+    nav ul li a:hover {
+      background-color: #2e8b57;
+    }
+
+    nav ul li ul {
+      display: none;
+      background-color: #333;
+    }
+
+    nav ul li:hover ul {
+      display: block;
+    }
+
+    nav ul li ul li a {
+      padding-left: 40px;
+      font-size: 1rem;
+    }
+
+    .nav-bottom {
+      padding: 20px;
+      border-top: 1px solid #333;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .settings-icon {
+      font-size: 26px;
+      color: white;
+      cursor: pointer;
+      align-self: center;
+    }
+
+    .settings-icon:hover {
+      color: #2e8b57;
+    }
+
+    .searchbar {
+      padding: 10px;
+      border-radius: 6px;
+      border: none;
+      font-size: 1rem;
+    }
+
+    .content {
+      margin-left: 240px;
+      width: calc(100% - 240px);
+    }
+
+    header {
+      background-color: #2e8b57;
+      padding: 30px;
+      text-align: center;
+    }
+
+    header h1 {
+      color: #333;
+      font-size: 2.4rem;
+    }
+
+    main {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 40px;
+      background-color: #f2f2f2;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.4);
+    }
+
+    section {
+      margin-bottom: 60px;
+    }
+
+    section h2 {
+      margin-bottom: 18px;
+      color: #2e8b57;
+      font-size: 1.8rem;
+    }
+
+    p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+
+    img, iframe, audio {
+      border-radius: 6px;
+      margin-bottom: 15px;
+      max-width: 100%;
+    }
+
+
+    .gimp-row {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      margin-top: 15px;
+    }
+
+    .gimp-layers {
+      width: 300px;
+      height: auto;
+    }
+
+    .gimp-text {
+      flex: 1;
+      margin-top: 100px;
+      margin-left: 40px;
+      margin-right: 100px;
+      margin-bottom: 50px;
+    }
+
+    .slojevi-img {
+      width: 500px;
+      height: auto;
+    }
+
+    footer {
+      background-color: #1f1f1f;
+      color: #ccc;
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
+      font-size: 0.95rem;
+    }
+    .firsttekst {
+      margin-top: 50px;
+      margin-left: 30px;
+      margin-right: 100px;
+      margin-bottom: 50px;
+    }
+    .slfirst {
+      margin-top: 50px;
+      margin-bottom: 60px;
+    }
+    .thirdtext{
+      margin-top: 50px;
+      margin-left: 30px;
+      margin-right: 100px;
+      margin-bottom: 50px;
+    }
+    main {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 40px;
+      background-color: #2b2b2b; 
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.4);
+      color: #ffffff; 
+    }
+
+    #komentari {
+      margin-top: 60px;
+    }
+
+    #komentari h2 {
+      color: #ffffff;
+      font-size: 1.6rem;
+      margin-bottom: 10px;
+    }
+
+    #komentari h2::after {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 4px;
+      background-color: #2e8b57;
+      margin-top: 8px;
+    }
+
+    .comment-box {
+      background-color: #b5b5b5;
+      padding: 20px;
+      border-radius: 6px;
+      margin-top: 20px;
+    }
+
+    .comment-box textarea {
+      width: 100%;
+      height: 120px;
+      resize: none;
+      padding: 12px;
+      font-size: 1rem;
+      border-radius: 4px;
+      border: none;
+      outline: none;
+    }
+
+    .comment-box button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      background-color: #2e8b57;
+      color: rgb(255, 255, 255);
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .comment-box button:hover {
+      background-color: #3a00cc;
+    }
+    .zvukm {
+      margin-top: 50px;
+      margin-left: 30px;
+      margin-right: 100px;
+      margin-bottom: 50px;
+    }
+    .txtprojekt {
+      margin-top: 50px;
+      margin-left: 30px;
+      margin-right: 100px;
+      margin-bottom: 50px;
+    }
+    .zadnjaslika {
+      margin-top: 30px;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <ul>
+      <li><a href="#projekt">Projekt</a></li>
+      <li><a href="#grafika">Grafika</a></li>
+      <li><a href="#slika">Slika</a></li>
+      <li><a href="#video">Video</a></li>
+      <li><a href="#zvuk">Zvuk</a></li>
+    </ul>
+
+    <div class="nav-bottom">
+      <div class="settings-icon">⚙</div>
+      <input class="searchbar" type="search" placeholder="Pretraži...">
+    </div>
+  </nav>
+
+  <div class="content">
+
+    <header>
+      <h1>Karlo Zelembrz – Projekt Multimedija</h1>
+    </header>
+
+    <main>
+
+      <section id="projekt">
+        <h2><b>Projekt</b></h2>
+        <hr>
+        <p class="txtprojekt">Projekt predstavlja izradu web stranicu koja objedinjuje različite multimedijske elemente u sklopu kolegija Multimedija. Cilj projekta je prikazati primjenu teksta, slike, grafike, videa i zvuka kroz jedinstvenu i preglednu web prezentaciju.
+
+Web stranica je izrađena korištenjem HTML-a i CSS-a u razvojnom okruženju Visual Studio Code. Struktura stranice organizirana je u tematske cjeline, dok je dizajn prilagođen jednostavnom i ugodnom korisničkom iskustvu. Za grafičke i multimedijske sadržaje korišteni su različiti alati: Inkscape za vektorsku grafiku, GIMP za obradu slike, DaVinci Resolve za video montažu te Audacity za obradu zvuka.</p>
+      </section>
+
+      <section id="grafika">
+        <h2><b>Grafika (Inkscape)</b></h2>
+        <hr>
+        <div class="firsttekst"><p><b>Grafiku</b> sam izradio u programu Inkscape, gdje sam dizajnirao vektorski logo automobila koristeći rad sa slojevima i osnovnim geometrijskim oblicima. Logotip se sastoji od četiri sloja.
+
+Rad sam započeo izradom sjene automobila, koju sam dobio pomoću Ellipse Toola i prepolovio koristeći opcije za rad s putanjama (Path), čime sam postigao realističan izgled sjene. Nakon toga sam izradio osnovni oblik automobila pomoću Bezier alata te ga obrubio crvenom bojom kako bih naglasio konture. Na kraju sam dodao tekst “Purple Car” koji prati zakrivljenost automobila koristeći opciju Text on Path. Svi slojevi su jasno organizirani i prikazani ispod glavne slike.</p>
+          </div>
+          
+        <img src="grafika.jpeg" alt="Grafika">
+        <img src="slojevi.jpeg" alt="Slojevi" class="slojevi-img">
+      </section>
+      <section id="slika">
+        <h2><b>Slika (GIMP)</b></h2>
+<hr>
+        <img class="slfirst" src="GIMPshirt.jpeg" alt="Majica u GIMP-u"  >
+
+        <div class="gimp-row">
+          <img src="GIMPslojevi.jpeg" alt="Slojevi u GIMP-u" class="gimp-layers">
+          <p class="gimp-text">
+            <b>Slika</b> prikazuje dizajn majice koji sam izradio u programu GIMP, koristeći rad sa slojevima i osnovne alate za obradu raster grafike. Cijeli rad sastoji se od sedam slojeva, što mi je omogućilo pregledno i precizno uređivanje svakog elementa zasebno.
+
+Kao osnovu sam koristio crnu majicu preuzetu s interneta, koju sam postavio kao pozadinski sloj. Na dodatnim slojevima sam dodavao grafičke elemente i tekst, pri čemu sam koristio alate Move Tool, Text Tool, Scale Tool i Transform Tool kako bih prilagodio položaj i veličinu elemenata. Posebnu pažnju posvetio sam kontrastu i vidljivosti dizajna na tamnoj podlozi, koristeći prilagodbe boja i prozirnosti. Druga slika prikazuje raspored slojeva, što jasno prikazuje način izrade i organizaciju cijelog dizajna.
+          </p>
+        </div>
+      </section>
+      <section id="video">
+        <h2><b>Video (DaVinci Resolve)</b></h2>
+<hr>
+        <p class="thirdtext">
+          <b>Video</b> je izrađen u programu DaVinci Resolve, dok je izvorni video materijal snimljen pomoću alata OBS Studio. Ukupna duljina videa iznosi 6 minuta, a veličina datoteke je 2,35 GB. Video sadržaj prikazuje world tour u igri Minecraft.
+
+Nakon uvoza snimke u DaVinci Resolve, započeo sam proces montaže na timelineu, gdje sam izrezao nepotrebne dijelove i prilagodio redoslijed scena. U video sam dodao dvije no-copyright glazbene podloge, uvodnu sliku na početku te fade in i fade out efekte na slici, videu i glazbi, čime sam postigao glađe prijelaze i profesionalniji dojam. Obradom zvuka i slike osigurao sam da je završni video pregledan, tečan i ugodan za gledanje.
+        </p>
+
+        <iframe
+          width="500px"
+          height="300px"
+          src="https://www.youtube.com/embed/BXPtgwSmb1o?start=8"
+          allowfullscreen>
+        </iframe>
+
+        <img src="davinci.png" alt="DaVinci Resolve workflow">
+      </section>
+
+    <section id="zvuk">
+       <h2><b>Zvuk (Audacity)</b></h2>
+      <hr>
+      <p class="zvukm">
+        <b>Zvuk</b> je izrađen u programu Audacity, gdje sam snimio vlastiti glas čitajući kratki članak preuzet s digitalnih novina. Snimanje je izvedeno pomoću mikrofona, nakon čega sam započeo proces obrade zvuka.
+
+U Audacityju sam uklonio neželjene dijelove snimke, prilagodio glasnoću te poboljšao čitljivost govora. U pozadinu sam dodao glazbenu podlogu bez autorskih prava, pri čemu sam koristio fade in i fade out efekte kako bi prijelazi između govora i glazbe bili ugodni i prirodni. Također sam vodio računa o balansu glasnoće između govora i glazbe kako bi govor ostao jasan i razumljiv.
+
+Završni audio zapis izvezen je u MP3 formatu te je ugrađen u web stranicu pomoću HTML audio elementa, čime je prikazana praktična primjena zvuka kao multimedijskog elementa.
+      </p>
+      <audio controls>
+        <source src="audacityzad.mp3" type="audio/mpeg">
+            Vaš preglednik ne podržava audio element.
+      </audio>
+  
+      <div><img class="zadnjaslika" src="audicityslika.png" alt="Audacity"></div>
+    </section>
+
+
+      <section id="komentari">
+          <h2>Comments</h2>
+        <div class="comment-box">
+          <textarea placeholder="Write a comment..."></textarea>
+          <button>Comment</button>
+        </div>
+      </section>
+
+    </main>
+
+    <footer>
+      &copy; 2026 Karlo Zelembrz
+    </footer>
+
+  </div>
+
+</body>
+</html>
